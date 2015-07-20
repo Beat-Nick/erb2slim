@@ -1,11 +1,17 @@
-p this is a test
+.container-fluid
+	.col-md-3
 
-form
-	.form-inline
-			select#convert_type
-				-conversions.each do |type|
+	.col-md-6
+		h1 Ze Title
+		h6 Convert all your HTML Snippets
+
+		form#convert method="post"
+			.form-inline
+				select name="convert_type"
+					-conversions.each do |type|
 						option = type
-			input#raw_text
-	buttom type="submit" Submit
-			
-textarea#final rows="5"
+				textarea#raw_text name="raw_text" rows="10"
+				hr
+				textarea#final rows="10"
+			button type="submit" Convert
+	.col-md-3
