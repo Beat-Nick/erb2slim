@@ -4,7 +4,6 @@ require 'slim'
 require 'html2slim'
 require 'html2haml'
 require 'haml2slim'
-require 'coderay'
 require 'pry'
 
 set :environment, :production
@@ -19,7 +18,7 @@ end
 
 post '/convert.json' do
 	raw_text = params[:raw_text]
-	conversion_type = params[:convert_type]
+	conversion_type = params[:conversion_type]
 
 	converted_txt = convert(raw_text, conversion_type)
 

@@ -6,19 +6,22 @@ $(function (){
     lineNumbers: true,
     value: "work",
     mode: "htmlembedded"
-    //theme: "ambiance",
-    //indentWithTabs: false,
-    //readOnly: true
   };
-
-  raw_text = CodeMirror.fromTextArea(document.getElementById("raw_text"), rconfig);
-
   cconfig = {
     lineNumbers: true,
     mode: "application/x-slim"
    };
 
+  raw_text = CodeMirror.fromTextArea(document.getElementById("raw_text"), rconfig);
   convert = CodeMirror.fromTextArea(document.getElementById("final"), cconfig);
+  
+  raw_text.setSize(null, "88%");
+  convert.setSize(null, "88%");
+
+  // $( window ).resize(function() {
+  //   raw_text.setSize("", "88%");
+  //   convert.setSize("", "88%");
+  // });
   
   ///////////////////////
   //AJAX
@@ -27,6 +30,7 @@ $(function (){
   	//prevent the default behavior of a form
   	ev.preventDefault();
   
+    alert( $(this).serialize());
   	//send an ajax request to our action
   	$.ajax({
       type: "POST",
@@ -44,4 +48,5 @@ $(function (){
     	}
   	});
 	});
+  
 }); 

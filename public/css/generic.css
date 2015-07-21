@@ -1,0 +1,47 @@
+body {
+	background-color: FBFBFB;
+}
+
+/*Text Areas*/
+.fill{
+	height: 100%;
+	padding: 0px;
+	position: relative;
+}
+
+.cm {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+/*Side Bars*/
+.side-bar{
+	background-color: B3B3B3;
+	height: 100%;
+}
+.side-bar-button{
+	height: 5%;
+	text-align: center;
+}
+
+label.class {
+	font-size: 15pt;
+}
+
+/*Footer*/
+.footer{
+	background-color: 888887;
+	text-align: center;
+	position: absolute;
+	bottom: 0; 
+}
+
+.footer-text{
+	margin: 2px;
+}
+
+.bullet{
+	font-size: 15pt;
+	margin-left: 10px;
+	margin-right: 10px;
+}
