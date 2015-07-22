@@ -2,7 +2,19 @@ body {
 	background-color: FBFBFB;
 }
 
+.row {
+	margin: 0px !important;
+}
+
+form {
+	margin: 0px !important;
+}
+
 /*Text Areas*/
+h4 {
+	font-weight: thin;
+}
+
 .fill{
 	height: 100%;
 	padding: 0px;
@@ -18,26 +30,19 @@ body {
 .side-bar{
 	background-color: B3B3B3;
 	height: 100%;
+	position: relative;
 }
 .side-bar-button{
-	height: 5%;
-	text-align: center;
-}
-
-label.class {
-	font-size: 15pt;
+	position: absolute;
+	bottom: 10;
+	right: 10;
+	width: 50%;
 }
 
 /*Footer*/
 .footer{
 	background-color: 888887;
 	text-align: center;
-	position: absolute;
-	bottom: 0; 
-}
-
-.footer-text{
-	margin: 2px;
 }
 
 .bullet{

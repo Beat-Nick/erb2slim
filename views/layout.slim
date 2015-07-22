@@ -1,17 +1,29 @@
 html
   head
     title erb2slim
-    link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"
-    link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+    link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css"
     link href="/css/generic.css" rel="stylesheet" 
     script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" 
   body
   
   == yield
 
-  script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" 
+  / script src="/js/convert.js"
+  / link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/codemirror.css" rel="stylesheet" 
+  / script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/mode/xml/xml.min.js"
+  / script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/addon/mode/multiplex.min.js"
+  / script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/mode/htmlembedded/htmlembedded.min.js"
+  / script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/mode/htmlmixed/htmlmixed.min.js"
+  / script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/mode/coffeescript/coffeescript.min.js"
+  / script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/mode/javascript/javascript.min.js"
+  / script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/mode/ruby/ruby.min.js"
+  / script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/mode/markdown/markdown.min.js"
+  / script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/mode/slim/slim.min.js"
+  / script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/mode/haml/haml.min.js"
+
+
   script src="/js/convert.js"
-  link href="/css/codemirror.css" rel="stylesheet" 
+  link href="/css/codemirror.css" rel="stylesheet"
   script src="/js/codemirror.js" 
   script src="/js/xml.js" 
   script src="/js/multiplex.js" 
@@ -22,3 +34,4 @@ html
   script src="/js/ruby.js" 
   script src="/js/markdown.js" 
   script src="/js/slim.js" 
+  script src="/js/haml.js" 

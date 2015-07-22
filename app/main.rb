@@ -12,31 +12,44 @@ set :static, true
 set :views, "views"
 
 get '/' do
-	conversions = ["haml->slim", "slim", "haml"]
-    slim :index, :locals => {:conversions => conversions}
+	conversions = ["haml2slim", "slim", "haml"]
+	sites =   { html2slim: "https://github.com/slim-template/html2slim",
+			 	html2haml: "https://github.com/haml/html2haml",
+			 	haml2slim: "https://github.com/slim-template/haml2slim",
+			 	materialize: "http://materializecss.com/",
+			 	codemirror: "https://codemirror.net/"}
+	advoptions = {erb: "Ignore ERB Tags",
+				  xhtml: "Output XHTML",
+				  ruby: "Ruby 1.9 Tags If Possible"}
+    slim :index, :locals => {:conversions => conversions, :sites => sites, :advoptions => advoptions}
 end
 
 post '/convert.json' do
 	raw_text = params[:raw_text]
 	conversion_type = params[:conversion_type]
+	params[:erb].nil? ? erb = false : erb = true
+	params[:xhtml].nil? ? xhtml = false : xhtml = true
+	params[:ruby].nil? ? ruby = false : ruby = true
 
-	converted_txt = convert(raw_text, conversion_type)
+	options = [erb,xhtml,ruby]
+
+	converted_txt = convert(raw_text, conversion_type, options)
 
 	content_type :json 
 	{:converted_txt => converted_txt}.to_json
 end
 
-def convert(raw_text, conversion_type)
+def convert(raw_text, conversion_type, options)
 	begin
 		case conversion_type
 		when "slim"
 			converted_txt = HTML2Slim.convert!(raw_text, conversion_type).to_s
-		when "haml->slim"
-			options = {:erb => true, :xhtml => false}
+		when "haml2slim"
+			options = {:erb => options[0], :xhtml => options[1], :ruby19_style_attributes => options[2]}
 			converted_txt = Html2haml::HTML.new(raw_text, options).render
 			converted_txt = Haml2Slim.convert!(converted_txt).to_s
 		when "haml"
-			options = {:erb => true, :xhtml => false}
+			options = {:erb => options[0], :xhtml => options[1], :ruby19_style_attributes => options[2]}
 			converted_txt = Html2haml::HTML.new(raw_text, options).render
 		else 
 			converted_txt = "Converter not found!"

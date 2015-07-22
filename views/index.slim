@@ -1,47 +1,52 @@
 /.container-fluid
 form#convert method="post"
-	/text area
-	.div.col-md-10.fill
-		/Raw Text
-		.col-md-6
-			h4 HTML or ERB 
+	.row
+		.col.s10
+			.row
+				/Raw Text
+				.col.s6
+					h4 HTML or ERB 
+					hr
+					.row.cm
+						textarea#raw_text name="raw_text"
+				
+				/Converted Text
+				.col.s6
+					h4 Converted Text
+					hr
+					.row.cm
+						textarea#final 	
+
+			/Footer
+			.col.s12.footer
+					- sites.each_with_index do |(value,link), index|
+						a href="#{link}" #{value}
+						-if index != sites.size - 1
+							span.bullet •
+
+		/Side-bar
+		.col.s2.side-bar	
 			hr
-			.row.cm
-				textarea#raw_text name="raw_text"
-		
-		/Converted Text
-		.col-md-6
-			h4 Converted Text
+			h5 Pick Conversion Type
 			hr
-			.row.cm
-				textarea#final 	
-		
-		/Footer
-		- sites =   {html2slim: "https://github.com/slim-template/html2slim",
-				 	 html2haml: "https://github.com/haml/html2haml",
-				 	 haml2slim: "https://github.com/slim-template/haml2slim"}
-		.col-md-12.footer
-			.footer-text
-				- sites.each_with_index do |(value,link), index|
-					a href="#{link}" #{value}
-					
-					-if index != sites.size - 1
-						span.bullet •
+			-conversions.each do |conversion_method|
+				p
+					input.with-gap type="radio" id="#{conversion_method}" name="conversion_type" value="#{conversion_method}"
+					label for="#{conversion_method}" #{conversion_method}
 
-	/Side-bar
-	.col-md-2.side-bar	
-		hr
-		-conversions.each do |conversion_method|
-			.radio
-				label.radio
-					input type="radio" name="conversion_type" value="#{conversion_method}" #{conversion_method}
-		hr
+			hr
+			h5 Advanced options
+			hr
+			-advoptions.each do |opt,txt|
+			 	p
+			 		input.filled-in type="checkbox" name="#{opt}" id="#{opt}" value="true" 
+			 		label for="#{opt}" #{txt}
 
-	 	button.btn.btn-default.btn-block type="submit" Convert
+			hr
+		 	button.btn.btn-default.btn-block type="submit" Convert
+		 	hr
 
-	 	
-	 	hr
+		 	a.btn.btn-default.side-bar-button href="https://github.com/froshroom/erb2slim"
+		 		span class="gh-text" id="gh-text" Source
+			 	span class="gh-ico" aria-hidden="true"
 
-	 	a.btn.btn-default href="https://github.com/froshroom/erb2slim"
-	 		span Source 
-	 		i.fa.fa-github
