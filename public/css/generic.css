@@ -1,5 +1,5 @@
 body {
-	background-color: FBFBFB;
+	background-color: #F5F5F5;
 }
 
 .row {
@@ -11,14 +11,13 @@ form {
 }
 
 /*Text Areas*/
-h4 {
-	font-weight: thin;
+.main-text{
+	padding: 0px !important;
+	height: calc(100vh - 35px);
 }
 
-.fill{
-	height: 100%;
-	padding: 0px;
-	position: relative;
+h4 {
+	font-weight: thin;
 }
 
 .cm {
@@ -27,11 +26,17 @@ h4 {
 }
 
 /*Side Bars*/
+h5 {
+	font-weight: bold;
+}
+
 .side-bar{
-	background-color: B3B3B3;
+	background-color: #C6C6C6;
 	height: 100%;
 	position: relative;
+	/*padding: 0px !important;*/
 }
+
 .side-bar-button{
 	position: absolute;
 	bottom: 10;
@@ -39,14 +44,28 @@ h4 {
 	width: 50%;
 }
 
+.side-bar-text {
+	color: #000000;
+}
+
 /*Footer*/
 .footer{
-	background-color: 888887;
+	background-color: #9A9898;
 	text-align: center;
+	height: 35px;
 }
 
 .bullet{
-	font-size: 15pt;
-	margin-left: 10px;
-	margin-right: 10px;
+	font-size: 18pt;
+	margin-left: 20px;
+	margin-right: 20px;
+	padding-top: 5px;
+	 vertical-align:middle;
+}
+
+a.gem{
+	color: #C6C6C6;
+}
+a.gem:hover{
+	text-decoration: underline;
 }

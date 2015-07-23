@@ -1,18 +1,18 @@
 /.container-fluid
 form#convert method="post"
 	.row
-		.col.s10
-			.row
+		.col.s10.main-text
+			.row.main-text
 				/Raw Text
 				.col.s6
-					h4 HTML or ERB 
+					h4 HTML 
 					hr
 					.row.cm
 						textarea#raw_text name="raw_text"
 				
 				/Converted Text
 				.col.s6
-					h4 Converted Text
+					h4 Converted Code
 					hr
 					.row.cm
 						textarea#final 	
@@ -20,7 +20,7 @@ form#convert method="post"
 			/Footer
 			.col.s12.footer
 					- sites.each_with_index do |(value,link), index|
-						a href="#{link}" #{value}
+						a.gem href="#{link}" #{value}
 						-if index != sites.size - 1
 							span.bullet •
 
@@ -29,24 +29,23 @@ form#convert method="post"
 			hr
 			h5 Pick Conversion Type
 			hr
-			-conversions.each do |conversion_method|
+			-conversions.each do |method, text|
 				p
-					input.with-gap type="radio" id="#{conversion_method}" name="conversion_type" value="#{conversion_method}"
-					label for="#{conversion_method}" #{conversion_method}
+					input.with-gap.grey.darken-1 type="radio" id="#{method}" name="conversion_type" value="#{method}"
+					label.side-bar-text  for="#{method}" #{text}
 
 			hr
 			h5 Advanced options
 			hr
 			-advoptions.each do |opt,txt|
 			 	p
-			 		input.filled-in type="checkbox" name="#{opt}" id="#{opt}" value="true" 
-			 		label for="#{opt}" #{txt}
+			 		input.filled-in.grey.darken-1 type="checkbox" name="#{opt}" id="#{opt}" value="true" 
+			 		label.side-bar-text for="#{opt}" #{txt}
 
 			hr
-		 	button.btn.btn-default.btn-block type="submit" Convert
+		 	button.btn.btn-default.grey.darken-1 type="submit" Convert
 		 	hr
 
-		 	a.btn.btn-default.side-bar-button href="https://github.com/froshroom/erb2slim"
+		 	a.btn.btn-default.side-bar-button.grey.darken-1 href="https://github.com/froshroom/erb2slim"
 		 		span class="gh-text" id="gh-text" Source
 			 	span class="gh-ico" aria-hidden="true"
-

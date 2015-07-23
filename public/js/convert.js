@@ -1,27 +1,40 @@
+var html = "<html> \r\n \
+  <head> \r\n \
+    <title>Enter You Code Here</title> \r\n \
+  <%= foo = [1,2,3] %>\r\n \
+  <body> \r\n \
+    <%= foo.each do |bar| %> \r\n \
+    <p>Or click Convert to find the best option </p> \r\n \
+  </body> \r\n \
+  </head> \r\n \
+</html>";
+
 $(function (){
   ///////////////////////
   //Page Setup
   //////////////////////  
   $('input:radio[id=haml2slim]').prop( "checked", true);
+  $("input:checkbox[name=indent]").attr('disabled', 'disabled'); 
   
   ///////////////////////
   //CodeMirror
   //////////////////////
   rconfig = {
     lineNumbers: true,
-    value: "work",
-    mode: "htmlembedded"
+    mode: "htmlembedded",
+    theme: "base16-light"
   };
   cconfig = {
     lineNumbers: true,
+    theme: "base16-light"
    };
 
   raw_text = CodeMirror.fromTextArea(document.getElementById("raw_text"), rconfig);
   convert = CodeMirror.fromTextArea(document.getElementById("final"), cconfig);
-  
-  //viewport height hack because i'm tired of design
-  raw_text.setSize(null, "87vh");
-  convert.setSize(null, "87vh");
+
+  raw_text.setSize(null, "calc(92% - 5px)");
+  raw_text.setValue(html);
+  convert.setSize(null, "calc(92% - 5px)");
   
   ///////////////////////
   //AJAX
@@ -61,7 +74,12 @@ $(function (){
 $("input:radio[name='conversion_type']").change(function(e){
     if($(this).val() == 'slim') {
       $("input:checkbox").attr('disabled', 'disabled');
+    } 
+    else if($(this).val() == 'format') {
+      $("input:checkbox").attr('disabled', 'disabled');
+      $("input:checkbox[id=indent]").removeAttr('disabled');
     } else {
       $("input:checkbox").removeAttr('disabled');
+      $("input:checkbox[name=indent]").attr('disabled', 'disabled'); 
     }
 });
