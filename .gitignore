@@ -45,3 +45,5 @@ Temporary Items
 .apdisk
 *.pui
 sftp-config.json
+
+/public/css/.sass-cache/

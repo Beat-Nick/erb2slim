@@ -31,7 +31,7 @@ form#convert method="post"
 			hr
 			-conversions.each do |method, text|
 				p
-					input.with-gap.grey.darken-1 type="radio" id="#{method}" name="conversion_type" value="#{method}"
+					input.with-gap type="radio" id="#{method}" name="conversion_type" value="#{method}"
 					label.side-bar-text  for="#{method}" #{text}
 
 			hr
@@ -39,13 +39,20 @@ form#convert method="post"
 			hr
 			-advoptions.each do |opt,txt|
 			 	p
-			 		input.filled-in.grey.darken-1 type="checkbox" name="#{opt}" id="#{opt}" value="true" 
+			 		input.filled-in type="checkbox" name="#{opt}" id="#{opt}" value="true" 
 			 		label.side-bar-text for="#{opt}" #{txt}
 
 			hr
-		 	button.btn.btn-default.grey.darken-1 type="submit" Convert
+		 	button.btn.btn-default.btn-convert type="submit" Convert
 		 	hr
 
-		 	a.btn.btn-default.side-bar-button.grey.darken-1 href="https://github.com/froshroom/erb2slim"
-		 		span class="gh-text" id="gh-text" Source
-			 	span class="gh-ico" aria-hidden="true"
+		 	.bottom
+		 		ul
+		 			li
+		 				a.source align="right" href="https://github.com/froshroom/erb2slim" Source
+		 				img.gh-logo src="/img/gh32.png" align="right"
+
+
+		 	/ a.btn.btn-default.btn-gh href="https://github.com/froshroom/erb2slim"
+		 	/ 	span.gh-text id="gh-text" Source
+			 / 	

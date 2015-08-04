@@ -34,14 +34,28 @@ h5 {
 	background-color: #C6C6C6;
 	height: 100%;
 	position: relative;
-	/*padding: 0px !important;*/
 }
 
-.side-bar-button{
-	position: absolute;
+.btn-convert{
+	width: 100%;
+}
+
+.bottom{
 	bottom: 10;
-	right: 10;
-	width: 50%;
+	position: absolute;
+	width: 90%;
+	padding-left: 10%;
+}
+.source{
+	color: #9A9898;
+}
+
+.gh-logo{
+	vertical-align:middle;
+	height: 15px;
+	width: 15px;
+	margin-left: 5px;
+	text-align: right;
 }
 
 .side-bar-text {
@@ -60,7 +74,7 @@ h5 {
 	margin-left: 20px;
 	margin-right: 20px;
 	padding-top: 5px;
-	 vertical-align:middle;
+	vertical-align:middle;
 }
 
 a.gem{
