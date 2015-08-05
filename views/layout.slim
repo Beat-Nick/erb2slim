@@ -1,40 +1,37 @@
 html
   head
     title erb2slim
-    /link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css"
+    meta name="description" content="A simple site to quickly convert your HTML into SLIM or HAML templates"
     link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/theme/base16-dark.min.css"
     link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/theme/base16-light.min.css"
-    link href="/css/generic.css" rel="stylesheet" 
-    link href="/css/materialize.css" rel="stylesheet" 
+    / link href="/css/generic.css" rel="stylesheet" 
+    / link href="/css/materialize.css" rel="stylesheet" 
+    / link href="/css/codemirror.css" rel="stylesheet"
+    link href="/css/all.min.css" rel="stylesheet"
     script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" 
   body
   
   == yield
 
+  script src="/js/all.min.js"
+
   / script src="/js/convert.js"
-  / link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/codemirror.css" rel="stylesheet" 
-  / script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/mode/xml/xml.min.js"
-  / script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/addon/mode/multiplex.min.js"
-  / script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/mode/htmlembedded/htmlembedded.min.js"
-  / script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/mode/htmlmixed/htmlmixed.min.js"
-  / script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/mode/coffeescript/coffeescript.min.js"
-  / script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/mode/javascript/javascript.min.js"
-  / script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/mode/ruby/ruby.min.js"
-  / script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/mode/markdown/markdown.min.js"
-  / script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/mode/slim/slim.min.js"
-  / script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.4.0/mode/haml/haml.min.js"
+  / script src="/js/codemirror.js" 
+  / script src="/js/xml.js" 
+  / script src="/js/multiplex.js" 
+  / script src="/js/htmlembedded.js" 
+  / script src="/js/htmlmixed.js" 
+  / script src="/js/coffeescript.js" 
+  / script src="/js/javascript.js" 
+  / script src="/js/ruby.js" 
+  / script src="/js/markdown.js" 
+  / script src="/js/slim.js" 
+  / script src="/js/haml.js" 
 
-
-  script src="/js/convert.js"
-  link href="/css/codemirror.css" rel="stylesheet"
-  script src="/js/codemirror.js" 
-  script src="/js/xml.js" 
-  script src="/js/multiplex.js" 
-  script src="/js/htmlembedded.js" 
-  script src="/js/htmlmixed.js" 
-  script src="/js/coffeescript.js" 
-  script src="/js/javascript.js" 
-  script src="/js/ruby.js" 
-  script src="/js/markdown.js" 
-  script src="/js/slim.js" 
-  script src="/js/haml.js" 
+  javascript:
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-48503655-2', 'auto');
+    ga('send', 'pageview');

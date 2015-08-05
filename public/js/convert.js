@@ -4,7 +4,7 @@ var html = "<html> \r\n \
   <%= foo = [1,2,3] %>\r\n \
   <body> \r\n \
     <%= foo.each do |bar| %> \r\n \
-    <p>Or click Convert to find the best option </p> \r\n \
+    <p>Or click Convert to test it out!</p> \r\n \
   </body> \r\n \
   </head> \r\n \
 </html>";
