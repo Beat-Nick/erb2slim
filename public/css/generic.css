@@ -25,7 +25,7 @@ h4 {
 	padding-right: 10px;
 }
 
-/*Side Bars*/
+/*Side Bar*/
 h5 {
 	font-weight: bold;
 }
@@ -36,30 +36,56 @@ h5 {
 	position: relative;
 }
 
+.side-bar-text {
+	color: #000000;
+}
+
 .btn-convert{
 	width: 100%;
 }
 
 .bottom{
-	bottom: 10;
+	bottom: 20;
+	right: 0;
 	position: absolute;
-	width: 90%;
-	padding-left: 10%;
-}
-.source{
-	color: #9A9898;
+	width: 80%;
 }
 
-.gh-logo{
-	vertical-align:middle;
-	height: 15px;
-	width: 15px;
-	margin-left: 5px;
-	text-align: right;
+.bottom ul{
+	margin-top: 5px;
+	margin-bottom: 5px
 }
 
-.side-bar-text {
+.bottom-btn{
+	background-color: #9A9898;
+	margin-bottom: 15px;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+	padding: 5px;
+}
+
+.bottom-btn:hover{
+	background-color: #F5F5F5;
 	color: #000000;
+}
+
+.bottom-icon {
+	border-right: thin solid #000000;
+	width: 30px;
+	display: inline;
+}
+
+.bottom a{
+	color: #FFFFFF;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.logo{
+	vertical-align:middle;
+	height: 17px;
+	width: 17px;
+	margin-left: 5px;
+	margin-right: 10px;
 }
 
 /*Footer*/
@@ -78,8 +104,5 @@ h5 {
 }
 
 a.gem{
-	color: #C6C6C6;
-}
-a.gem:hover{
-	text-decoration: underline;
+	color: #d2d2d2;
 }

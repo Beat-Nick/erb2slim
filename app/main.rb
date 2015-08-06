@@ -7,9 +7,8 @@ require 'html2haml'
 require 'haml2slim'
 require 'pry'
 
-set :environment, :production
-set :port, '80'
-set :static, true
+set :enviroment, :development
+#set :enviroment, :production
 set :views, "views"
 
 Conversions = 	{haml2slim: "Haml -> Slim", 
@@ -30,7 +29,9 @@ Advoptions = 	{erb: "Ignore ERB Tags",
 				 indent: "Set Indent to 4"}
 
 get '/' do
-    slim :index, :locals => {:conversions => Conversions, :sites => Sites, :advoptions => Advoptions}
+	isdev = settings.development?
+	print isdev
+    slim :index, :locals => {:conversions => Conversions, :sites => Sites, :advoptions => Advoptions, :isdev => isdev}
 end
 
 post '/convert.json' do

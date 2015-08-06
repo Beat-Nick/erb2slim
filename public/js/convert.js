@@ -83,3 +83,19 @@ $("input:radio[name='conversion_type']").change(function(e){
       $("input:checkbox[name=indent]").attr('disabled', 'disabled'); 
     }
 });
+
+
+//Toggle sidebar icon colors
+$( ".git" ).hover(function() {
+    $("#gh" ).attr( "src", "/img/gh32black.png");
+  }, function() {
+    $( "#gh" ).attr("src", "/img/gh32white.png");
+  }
+);
+$( ".report" ).hover(
+  function() {
+    $("#report" ).attr( "src", "/img/alert32black.png");
+  }, function() {
+    $("#report" ).attr( "src", "/img/alert32white.png");
+  }
+);
