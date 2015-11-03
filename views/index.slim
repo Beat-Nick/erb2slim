@@ -37,14 +37,21 @@ form#convert method="post"
 			hr
 			h5 Advanced options
 			hr
-			-advoptions.each do |opt,txt|
-			 	p
-			 		input.filled-in type="checkbox" name="#{opt}" id="#{opt}" value="true" 
-			 		label.side-bar-text for="#{opt}" #{txt}
+				-advoptions.each do |opt,txt|
+				 	p
+				 		input.filled-in type="checkbox" name="#{opt}" id="#{opt}" value="true" 
+				 		label.side-bar-text for="#{opt}" #{txt}
 
 			hr
 		 	button.btn.btn-default.btn-convert type="submit" Convert
 		 	hr
+
+		 	.switch.center
+		 		label 
+		 			|Light
+		 			input type="checkbox" name="theme" id="theme" value="true"
+		 			span class="lever"
+		 			|Dark 
 
 		 	.bottom
 		 		ul

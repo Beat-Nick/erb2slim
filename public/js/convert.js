@@ -9,12 +9,14 @@ var html = "<html> \r\n \
   </head> \r\n \
 </html>";
 
+///////////////////////
+//Page Setup
+//////////////////////  
 $(function (){
-  ///////////////////////
-  //Page Setup
-  //////////////////////  
   $('input:radio[id=haml2slim]').prop( "checked", true);
   $("input:checkbox[name=indent]").attr('disabled', 'disabled'); 
+  $('#theme').prop( "checked", true);
+
   
   ///////////////////////
   //CodeMirror
@@ -22,11 +24,11 @@ $(function (){
   rconfig = {
     lineNumbers: true,
     mode: "htmlembedded",
-    theme: "base16-light"
+    theme: "railscasts"
   };
   cconfig = {
     lineNumbers: true,
-    theme: "base16-light"
+    theme: "railscasts"
    };
 
   raw_text = CodeMirror.fromTextArea(document.getElementById("raw_text"), rconfig);
@@ -35,6 +37,22 @@ $(function (){
   raw_text.setSize(null, "calc(92% - 5px)");
   raw_text.setValue(html);
   convert.setSize(null, "calc(92% - 5px)");
+
+  //Theme Change
+  $('#theme').change(function() {
+      if($(this).is(":checked")) {
+        raw_text.setOption("theme","railscasts");
+        convert.setOption("theme","railscasts");
+        $("#MainCSS").attr("href", "/css/dark_main.css");
+        $("#MaterializeCSS").attr("href", "/css/dark_materialize.css");
+      } else {
+        raw_text.setOption("theme","base16-light");
+        convert.setOption("theme","base16-light");
+        $("#MainCSS").attr("href", "/css/light_main.css");
+        $("#MaterializeCSS").attr("href", "/css/light_materialize.css");
+      };
+       
+  });
   
   ///////////////////////
   //AJAX
@@ -83,7 +101,6 @@ $("input:radio[name='conversion_type']").change(function(e){
       $("input:checkbox[name=indent]").attr('disabled', 'disabled'); 
     }
 });
-
 
 //Toggle sidebar icon colors
 $( ".git" ).hover(function() {

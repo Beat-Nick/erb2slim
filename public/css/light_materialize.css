@@ -5451,7 +5451,7 @@ small {
 .btn, .btn-large {
   text-decoration: none;
   color: #fff;
-  background-color: #757575;
+  background-color: #9CA28E;
   text-align: center;
   letter-spacing: .5px;
   -webkit-transition: 0.2s ease-out;
@@ -5461,7 +5461,7 @@ small {
   transition: 0.2s ease-out;
   cursor: pointer; }
   .btn:hover, .btn-large:hover {
-    background-color: #828282; }
+    background-color: #a8ae9c; }
 
 .btn-floating {
   display: inline-block;
@@ -5473,7 +5473,7 @@ small {
   height: 37px;
   line-height: 37px;
   padding: 0;
-  background-color: #757575;
+  background-color: #9CA28E;
   border-radius: 50%;
   transition: .3s;
   cursor: pointer;
@@ -5539,7 +5539,7 @@ select:focus {
 
 button:focus {
   outline: none;
-  background-color: #7f7f7f; }
+  background-color: #a6ab99; }
 
 label {
   font-size: 0.8rem;
@@ -6458,4 +6458,4 @@ select {
   border-radius: 2px;
   height: 3rem; }
 
-/*# sourceMappingURL=materialize.css.map */
+/*# sourceMappingURL=light_materialize.css.map */

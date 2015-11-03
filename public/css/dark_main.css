@@ -1,5 +1,5 @@
 body {
-	background-color: #F5F5F5;
+	background-color: #2b2b2b;
 }
 
 .row {
@@ -18,6 +18,7 @@ form {
 
 h4 {
 	font-weight: thin;
+	color: #F4F1ED;
 }
 
 .cm {
@@ -28,16 +29,17 @@ h4 {
 /*Side Bar*/
 h5 {
 	font-weight: bold;
+	color: #ffffff;
 }
 
 .side-bar{
-	background-color: #C6C6C6;
+	background-color: #3a3b3f;
 	height: 100%;
 	position: relative;
 }
 
 .side-bar-text {
-	color: #000000;
+	color: #F4F1ED;
 }
 
 .btn-convert{
@@ -57,7 +59,7 @@ h5 {
 }
 
 .bottom-btn{
-	background-color: #9A9898;
+	background-color: #5b6073;
 	margin-bottom: 15px;
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 	padding: 5px;
@@ -90,7 +92,7 @@ h5 {
 
 /*Footer*/
 .footer{
-	background-color: #9A9898;
+	background-color: #5b6073;
 	text-align: center;
 	height: 35px;
 }
@@ -104,5 +106,5 @@ h5 {
 }
 
 a.gem{
-	color: #d2d2d2;
+	color: #F4F1ED;
 }
