@@ -1,0 +1,19 @@
+body {
+	background-color: #2b2b2b;
+}
+
+.header {
+	height: 20%;
+}
+
+.center {
+	text-align: center;
+}
+
+p {
+	font-family: Georgia, Serif;
+	color: #F4F1ED;
+	font-size: 24pt;
+}
+
+

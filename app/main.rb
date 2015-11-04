@@ -1,15 +1,18 @@
-require 'rubygems'
 require 'sinatra'
 require 'json'
 require 'slim'
 require 'html2slim'
 require 'html2haml'
 require 'haml2slim'
-require 'pry'
+require 'rack/mobile-detect'
 
-set :enviroment, :development
-#set :enviroment, :production
+####################
+# Sinatra Config & Vars
+####################
+#set :enviroment, :development
+set :enviroment, :production
 set :views, "views"
+set :static_cache_control, [:public, max_age: 60 * 60 * 24 * 365]
 
 Conversions = 	{haml2slim: "Haml -> Slim", 
 				 slim: "Slim", 
@@ -28,12 +31,23 @@ Advoptions = 	{erb: "Ignore ERB Tags",
 				 ruby: "Ruby 1.9 Tags If Possible",
 				 indent: "Set Indent to 4"}
 
+####################
+# Device Detection & Render
+####################
+use Rack::MobileDetect
+
 get '/' do
 	isdev = settings.development?
-	print isdev
-    slim :index, :locals => {:conversions => Conversions, :sites => Sites, :advoptions => Advoptions, :isdev => isdev}
+	if !request.env['X_MOBILE_DEVICE']
+    	slim :index, :locals => {:conversions => Conversions, :sites => Sites, :advoptions => Advoptions, :isdev => isdev}
+	else
+		slim :mobile, :layout => :layout_mobile, :locals => {:isdev => isdev}
+	end
 end
 
+####################
+# Conversion
+####################
 post '/convert.json' do
 	raw_text = params[:raw_text]
 	conversion_type = params[:conversion_type]

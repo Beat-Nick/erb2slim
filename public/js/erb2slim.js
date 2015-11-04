@@ -14,10 +14,9 @@ var html = "<html> \r\n \
 //////////////////////  
 $(function (){
   $('input:radio[id=haml2slim]').prop( "checked", true);
-  $("input:checkbox[name=indent]").attr('disabled', 'disabled'); 
-  $('#theme').prop( "checked", true);
+  $("input:checkbox[id=indent]").attr('disabled', 'disabled'); 
+  $('input:checkbox[id=theme]').prop( "checked", true);
 
-  
   ///////////////////////
   //CodeMirror
   //////////////////////
@@ -43,13 +42,15 @@ $(function (){
       if($(this).is(":checked")) {
         raw_text.setOption("theme","railscasts");
         convert.setOption("theme","railscasts");
-        $("#MainCSS").attr("href", "/css/dark_main.css");
-        $("#MaterializeCSS").attr("href", "/css/dark_materialize.css");
+        $("#CSS").attr("href", "/css/dark.min.css");
+        // $("#MainCSS").attr("href", "/css/dark_main.css");
+        // $("#MaterializeCSS").attr("href", "/css/dark_materialize.css");
       } else {
         raw_text.setOption("theme","base16-light");
         convert.setOption("theme","base16-light");
-        $("#MainCSS").attr("href", "/css/light_main.css");
-        $("#MaterializeCSS").attr("href", "/css/light_materialize.css");
+        $("#CSS").attr("href", "/css/light.min.css");
+        // $("#MainCSS").attr("href", "/css/light_main.css");
+        // $("#MaterializeCSS").attr("href", "/css/light_materialize.css");
       };
        
   });
@@ -91,10 +92,14 @@ $(function (){
 //Toggle Advanced options depending on conversion type
 $("input:radio[name='conversion_type']").change(function(e){
     if($(this).val() == 'slim') {
-      $("input:checkbox").attr('disabled', 'disabled');
+      $("input:checkbox[id=erb]").attr('disabled', 'disabled');
+      $("input:checkbox[id=xhtml]").attr('disabled', 'disabled');
+      $("input:checkbox[id=ruby]").attr('disabled', 'disabled');
+      $("input:checkbox[id=indent]").attr('disabled', 'disabled');
     } 
     else if($(this).val() == 'format') {
       $("input:checkbox").attr('disabled', 'disabled');
+      $("input:checkbox[id=theme]").removeAttr('disabled');
       $("input:checkbox[id=indent]").removeAttr('disabled');
     } else {
       $("input:checkbox").removeAttr('disabled');

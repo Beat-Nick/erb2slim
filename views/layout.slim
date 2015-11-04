@@ -1,20 +1,16 @@
 html
   head
-    title erb2slim
-    meta name="description" content="A simple site to quickly convert your HTML into SLIM or HAML templates"
-    
-      //JS Needs to be updated to correctly load final MIN file and not just dev files.
+    title ERB 2 SLIM
+    meta name="description" content="A single-page application to quickly convert your HTML into SLIM or HAML code"
 
     - if isdev
-      //link href="/css/light_main.css" rel="stylesheet" 
-      //link href="/css/light_materialize.css" rel="stylesheet" 
       link href="/css/light_theme.css" rel="stylesheet"
       link href="/css/dark_main.css" rel="stylesheet" id="MainCSS"
       link href="/css/dark_materialize.css" rel="stylesheet" id="MaterializeCSS"
       link href="/css/dark_theme.css" rel="stylesheet"
       link href="/css/codemirror.css" rel="stylesheet"
     - else
-      link href="/css/all.min.css" rel="stylesheet"
+      link href="/css/dark.min.css" rel="stylesheet" id="CSS"
     script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" 
   body
   
@@ -34,9 +30,7 @@ html
     script src="/js/slim.js" 
     script src="/js/haml.js" 
   -else
-    script src="/js/all.min.js"
-  
-  -if !isdev  
+    script src="/js/erb2slim.min.js" 
     javascript:
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -44,3 +38,17 @@ html
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-48503655-2', 'auto');
       ga('send', 'pageview');
+
+    /When delaying javascript the rawtext codebox losses color formatting. 
+
+    / javascript:
+    /   function downloadJSAtOnload() {
+    /   var element = document.createElement("script");
+    /   element.src = "/js/erb2slim.min.js";
+    /   document.body.appendChild(element);
+    /   }
+    /   if (window.addEventListener)
+    /   window.addEventListener("load", downloadJSAtOnload, false);
+    /   else if (window.attachEvent)
+    /   window.attachEvent("onload", downloadJSAtOnload);
+    /   else window.onload = downloadJSAtOnload;
