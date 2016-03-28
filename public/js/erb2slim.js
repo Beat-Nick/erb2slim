@@ -1,6 +1,6 @@
 var html = "<html> \r\n \
   <head> \r\n \
-    <title>Enter You Code Here</title> \r\n \
+    <title>Enter Your Code Here</title> \r\n \
   <%= foo = [1,2,3] %>\r\n \
   <body> \r\n \
     <%= foo.each do |bar| %> \r\n \
