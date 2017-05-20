@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'sinatra'
+gem 'sinatra', '>=2.0.0'
 gem 'slim'
 gem 'sass'
 gem 'rack-mobile-detect'
