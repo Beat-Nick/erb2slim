@@ -11,10 +11,10 @@ var html = "<html> \r\n \
 
 ///////////////////////
 //Page Setup
-//////////////////////  
+//////////////////////
 $(function (){
   $('input:radio[id=haml2slim]').prop( "checked", true);
-  $("input:checkbox[id=indent]").attr('disabled', 'disabled'); 
+  $("input:checkbox[id=indent]").attr('disabled', 'disabled');
   $('input:checkbox[id=theme]').prop( "checked", true);
 
   ///////////////////////
@@ -22,11 +22,13 @@ $(function (){
   //////////////////////
   rconfig = {
     lineNumbers: true,
+    styleSelectedText: true,
     mode: "htmlembedded",
     theme: "railscasts"
   };
   cconfig = {
     lineNumbers: true,
+    styleSelectedText: true,
     theme: "railscasts"
    };
 
@@ -52,29 +54,35 @@ $(function (){
         // $("#MainCSS").attr("href", "/css/light_main.css");
         // $("#MaterializeCSS").attr("href", "/css/light_materialize.css");
       };
-       
   });
-  
+
+  var pageload_cnt =  $('.counter-wrapper').attr("value");
+  var counter = $('.conversion-counter').FlipClock(pageload_cnt, {
+    clockFace: 'Counter',
+    minimumDigits: 7
+  });
+
+
   ///////////////////////
-  //AJAX
+  //AJAX CALL FOR CONVERSION
   //////////////////////
 	$('#convert').submit(function(ev){
   	//prevent the default behavior of a form
   	ev.preventDefault();
-  
+
   	//send an ajax request to our action
   	$.ajax({
       type: "POST",
     	url: "/convert.json",
-    
+
     	//serialize the form and use it as data for our ajax request
     	data: $(this).serialize(),
-    
+
     	//the type of data we are expecting back from server
     	dataType: "json",
 
     	success: function(data) {
-          //set codemirror mode
+          //set codemirror syntax highlighting
           if($('#haml').prop( "checked" )) {
             convert.setOption("mode", "haml");
           }else {
@@ -83,11 +91,15 @@ $(function (){
 
           //set codemirror value to converted text
     			convert.getDoc().setValue(data.converted_txt);
+
+          //increment conversion count
+          counter.setCounter(data.conversion_cnt);
+          $('.counter-wrapper').attr("value", data.conversion_cnt);
     	}
   	});
 	});
-  
-}); 
+
+});
 
 //Toggle Advanced options depending on conversion type
 $("input:radio[name='conversion_type']").change(function(e){
@@ -96,14 +108,14 @@ $("input:radio[name='conversion_type']").change(function(e){
       $("input:checkbox[id=xhtml]").attr('disabled', 'disabled');
       $("input:checkbox[id=ruby]").attr('disabled', 'disabled');
       $("input:checkbox[id=indent]").attr('disabled', 'disabled');
-    } 
+    }
     else if($(this).val() == 'format') {
       $("input:checkbox").attr('disabled', 'disabled');
       $("input:checkbox[id=theme]").removeAttr('disabled');
       $("input:checkbox[id=indent]").removeAttr('disabled');
     } else {
       $("input:checkbox").removeAttr('disabled');
-      $("input:checkbox[name=indent]").attr('disabled', 'disabled'); 
+      $("input:checkbox[name=indent]").attr('disabled', 'disabled');
     }
 });
 
@@ -121,3 +133,14 @@ $( ".report" ).hover(
     $("#report" ).attr( "src", "/img/alert32white.png");
   }
 );
+
+///////////////////////
+//FLIP CLOCK
+//////////////////////
+
+
+// setTimeout(function() {
+//   setInterval(function() {
+//     clock.increment();
+//   }, 1000);
+// });
