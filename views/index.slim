@@ -52,8 +52,12 @@ form#convert method="post"
 		 			input type="checkbox" name="theme" id="theme" value="true"
 		 			span class="lever"
 		 			|Dark 
-
+					
 		 	.bottom
+				.counter-wrapper value='#{conversion_cnt}'
+					h4 Total Conversion Count:
+					.conversion-counter
+				
 		 		ul
 		 			a href="https://github.com/Beat-Nick/erb2slim" 
 			 			li.bottom-btn.git
@@ -65,5 +69,3 @@ form#convert method="post"
 			 				.bottom-icon
 			 					img.logo#report src="/img/alert32white.png"
 			 				|    Report Issues
-		 				
-

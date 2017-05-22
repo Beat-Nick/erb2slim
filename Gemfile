@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'sinatra', '>=2.0.0'
+gem 'redis', '>=3.2'
 gem 'slim'
 gem 'sass'
 gem 'rack-mobile-detect'

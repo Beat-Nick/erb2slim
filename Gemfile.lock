@@ -26,6 +26,7 @@ GEM
       rack
     rack-protection (2.0.0)
       rack
+    redis (3.3.3)
     ruby_parser (3.9.0)
       sexp_processor (~> 4.1)
     sass (3.4.24)
@@ -49,6 +50,7 @@ DEPENDENCIES
   html2haml (>= 2.0.0)
   html2slim (>= 0.2.0)
   rack-mobile-detect
+  redis (>= 3.2)
   sass
   sinatra (>= 2.0.0)
   slim
