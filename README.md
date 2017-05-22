@@ -14,3 +14,4 @@ For easy reference I have linked the repos below:
 I also utilized the following libraries for the code window and css framework:
 * [CodeMirror](https://codemirror.net/)
 * [Materalize](http://materializecss.com/)
+* [FlipClock.js](http://flipclockjs.com/)
