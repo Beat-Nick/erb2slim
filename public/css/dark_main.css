@@ -26,6 +26,11 @@ h4 {
 	padding-right: 10px;
 }
 
+.CodeMirror-selectedtext {
+	background-color: #0a5366 !important; /*Custom highlighting for better visibility*/
+}
+
+
 /*Side Bar*/
 h5 {
 	font-weight: bold;

@@ -19,10 +19,20 @@ html
   == yield
 
   - if isdev
-    script src="/js/flipclock.js" 
+    /CODEMIRROR
+    
     script src="/js/codemirror.js" 
-    script src="/js/xml.js" 
+    
+    /ADD-ONS
+
+    /allows custom highlighting color
+    script src="/js/mark-selection.js" 
+    /Syntax highlighting for multiple languages in single window
     script src="/js/multiplex.js" 
+
+    /SYNTAX HIGHLIGHTING
+
+    script src="/js/xml.js" 
     script src="/js/htmlembedded.js" 
     script src="/js/htmlmixed.js" 
     script src="/js/coffeescript.js" 
@@ -31,6 +41,11 @@ html
     script src="/js/markdown.js" 
     script src="/js/slim.js" 
     script src="/js/haml.js" 
+    
+    /CONVERSION COUNTER
+    script src="/js/flipclock.js" 
+    
+    /SITE JS
     script src="/js/erb2slim.js" 
   -else
     script src="/js/erb2slim.min.js" 
@@ -41,17 +56,3 @@ html
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-48503655-2', 'auto');
       ga('send', 'pageview');
-
-    /When delaying javascript the rawtext codebox losses color formatting. 
-
-    / javascript:
-    /   function downloadJSAtOnload() {
-    /   var element = document.createElement("script");
-    /   element.src = "/js/erb2slim.min.js";
-    /   document.body.appendChild(element);
-    /   }
-    /   if (window.addEventListener)
-    /   window.addEventListener("load", downloadJSAtOnload, false);
-    /   else if (window.attachEvent)
-    /   window.attachEvent("onload", downloadJSAtOnload);
-    /   else window.onload = downloadJSAtOnload;

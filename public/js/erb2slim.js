@@ -22,11 +22,13 @@ $(function (){
   //////////////////////
   rconfig = {
     lineNumbers: true,
+    styleSelectedText: true,
     mode: "htmlembedded",
     theme: "railscasts"
   };
   cconfig = {
     lineNumbers: true,
+    styleSelectedText: true,
     theme: "railscasts"
    };
 
