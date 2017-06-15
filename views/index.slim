@@ -1,29 +1,25 @@
 /.container-fluid
 form#convert method="post"
-	.row
-		.col.s10.main-text
+	.row.main-wrapper
+		.col.s10.left-nav
 			.row.main-text
 				/Raw Text
-				.col.s6
+				.col.s6.cm-col.h100
 					h4 HTML 
 					hr
 					.row.cm
 						textarea#raw_text name="raw_text"
-				
 				/Converted Text
-				.col.s6
+				.col.s6.cm-col.h100 
 					h4 Converted Code
 					hr
 					.row.cm
 						textarea#final 	
-
-			/Footer
 			.col.s12.footer
 					- sites.each_with_index do |(value,link), index|
 						a.gem href="#{link}" #{value}
 						-if index != sites.size - 1
 							span.bullet •
-
 		/Side-bar
 		.col.s2.side-bar	
 			hr

@@ -17,10 +17,10 @@ GEM
       ruby_parser (~> 3.5)
     html2slim (0.2.0)
       hpricot
-    mini_portile2 (2.1.0)
+    mini_portile2 (2.2.0)
     mustermann (1.0.0)
-    nokogiri (1.7.2)
-      mini_portile2 (~> 2.1.0)
+    nokogiri (1.8.0)
+      mini_portile2 (~> 2.2.0)
     rack (2.0.3)
     rack-mobile-detect (0.4.0)
       rack
@@ -49,11 +49,11 @@ DEPENDENCIES
   haml2slim (>= 0.4.7)
   html2haml (>= 2.0.0)
   html2slim (>= 0.2.0)
-  rack-mobile-detect
-  redis (>= 3.2)
-  sass
+  rack-mobile-detect (>= 0.4.0)
+  redis (>= 3.2.0)
+  sass (>= 3.4.24)
   sinatra (>= 2.0.0)
-  slim
+  slim (>= 3.0.8)
 
 BUNDLED WITH
    1.13.6

@@ -11,10 +11,26 @@ form {
 }
 
 /*Text Areas*/
+.main-wrapper {
+	padding: 0px !important;
+	min-height: 760px;
+	min-width: 1470px;
+}
 .main-text{
+	min-height: 725px;
+	overflow: hidden;
 	padding: 0px !important;
 	height: calc(100vh - 35px);
 }
+.left-nav {
+	min-height: 725px;
+	height: 100%;
+	padding: 0px !important;
+}
+.h100 {
+	height: 100%;
+}
+
 
 h4 {
 	font-weight: thin;
@@ -31,6 +47,7 @@ h5 {
 }
 
 .side-bar{
+	min-height: 760px;
 	background-color: #CDCDCD;
 	height: 100%;
 	position: relative;

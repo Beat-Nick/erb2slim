@@ -25,7 +25,7 @@ else
 end
 
 #page conversion options & links
-Conversions = 	{haml2slim: "Haml -> Slim",
+Conversions = 	{haml2slim: "ERB -> Haml -> Slim",
 				 slim: "Slim",
 				 haml: "Haml",
 				 format: "HTML Formatter"}
