@@ -23,7 +23,7 @@ $(function (){
   rconfig = {
     lineNumbers: true,
     styleSelectedText: true,
-    mode: "htmlembedded",
+    ///mode: "htmlembedded",
     theme: "railscasts"
   };
   cconfig = {
@@ -38,30 +38,6 @@ $(function (){
   raw_text.setSize(null, "calc(92% - 5px)");
   raw_text.setValue(html);
   convert.setSize(null, "calc(92% - 5px)");
-
-  //Theme Change
-  $('#theme').change(function() {
-      if($(this).is(":checked")) {
-        raw_text.setOption("theme","railscasts");
-        convert.setOption("theme","railscasts");
-        $("#CSS").attr("href", "/css/dark.min.css");
-        // $("#MainCSS").attr("href", "/css/dark_main.css");
-        // $("#MaterializeCSS").attr("href", "/css/dark_materialize.css");
-      } else {
-        raw_text.setOption("theme","base16-light");
-        convert.setOption("theme","base16-light");
-        $("#CSS").attr("href", "/css/light.min.css");
-        // $("#MainCSS").attr("href", "/css/light_main.css");
-        // $("#MaterializeCSS").attr("href", "/css/light_materialize.css");
-      };
-  });
-
-  var pageload_cnt =  $('.counter-wrapper').attr("value");
-  var counter = $('.conversion-counter').FlipClock(pageload_cnt, {
-    clockFace: 'Counter',
-    minimumDigits: 7
-  });
-
 
   ///////////////////////
   //AJAX CALL FOR CONVERSION
@@ -92,9 +68,8 @@ $(function (){
           //set codemirror value to converted text
     			convert.getDoc().setValue(data.converted_txt);
 
-          //increment conversion count
-          counter.setCounter(data.conversion_cnt);
-          $('.counter-wrapper').attr("value", data.conversion_cnt);
+          //load new conversion count into ticker
+          $('.tick').attr("data-value", data.conversion_cnt)
     	}
   	});
 	});
@@ -103,6 +78,7 @@ $(function (){
 
 //Toggle Advanced options depending on conversion type
 $("input:radio[name='conversion_type']").change(function(e){
+    $('input:checkbox').removeAttr('checked');
     if($(this).val() == 'slim') {
       $("input:checkbox[id=erb]").attr('disabled', 'disabled');
       $("input:checkbox[id=xhtml]").attr('disabled', 'disabled');
@@ -110,6 +86,7 @@ $("input:radio[name='conversion_type']").change(function(e){
       $("input:checkbox[id=indent]").attr('disabled', 'disabled');
     }
     else if($(this).val() == 'format') {
+      
       $("input:checkbox").attr('disabled', 'disabled');
       $("input:checkbox[id=theme]").removeAttr('disabled');
       $("input:checkbox[id=indent]").removeAttr('disabled');
@@ -133,14 +110,3 @@ $( ".report" ).hover(
     $("#report" ).attr( "src", "/img/alert32white.png");
   }
 );
-
-///////////////////////
-//FLIP CLOCK
-//////////////////////
-
-
-// setTimeout(function() {
-//   setInterval(function() {
-//     clock.increment();
-//   }, 1000);
-// });

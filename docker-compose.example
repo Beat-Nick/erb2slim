@@ -1,0 +1,23 @@
+
+#This isn't a multi-container app but I use docker-compose for the ease of development. This file contains development specs and should not be used for any production application
+version: '3.6' 
+
+services:  
+  app:
+    image: beatnick/erb2slim:latest
+
+    #location of files to build image
+    build:
+      context: ./
+
+    environment:
+      - APP_ENV=development
+      - STORAGE=storage_file_name
+      - STORAGE_KEY=access_key_here
+      
+    ports:
+      - "4000:80"
+    
+    #for debugger
+    stdin_open: true
+    tty: true

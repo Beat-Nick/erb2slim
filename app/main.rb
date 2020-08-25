@@ -5,24 +5,23 @@ require 'html2slim'
 require 'html2haml'
 require 'haml2slim'
 require 'rack/mobile-detect'
-require "redis"
+require_relative 'data_client'
+require 'pry'
 
 ####################
 # Sinatra Config & Vars
 ####################
-
 #set enviroment variables, cache if production
-set :enviroment, :production
-#set :enviroment, :development
-set :views, "views"
-redis = Redis.new
-
-if settings.development?
-	require 'pry'
-	set :root, '/vagrant/erb2slim/'
-else
+if settings.production?
 	set :static_cache_control, [:public, max_age: 60 * 60 * 24 * 365]
 end
+
+#set views folder
+#cat .\public\css\*.css | ac .\public\css\erb2slim.min.css
+set :views, "views"
+
+#initialize data client
+data_client = DataClient.new(ENV["STORAGE"], ENV["STORAGE_KEY"])
 
 #page conversion options & links
 Conversions = 	{haml2slim: "ERB -> Haml -> Slim",
@@ -49,7 +48,7 @@ use Rack::MobileDetect
 
 get '/' do
 	isdev = settings.development?
-	pageload_conversions = redis.get("erb2slim_conversions")
+	pageload_conversions = data_client.get_count().to_s.rjust(7, "0") #add leading zeros
 	if !request.env['X_MOBILE_DEVICE']
     	slim :index, :locals => {:conversions => Conversions, :sites => Sites, :advoptions => Advoptions, :isdev => isdev, :conversion_cnt => pageload_conversions}
 	else
@@ -72,13 +71,12 @@ post '/convert.json' do
 
 	converted_txt = convert(raw_text, conversion_type, options)
 
-	#bump conversion count
-	conversion_count = redis.incr("erb2slim_conversions")
+	#bump conversion count (add leading zeros for counter)
+	conversion_count = data_client.incr_count().to_s.rjust(7, "0")
 
 	#return data as json
 	content_type :json
 	{:converted_txt => converted_txt, :conversion_cnt => conversion_count}.to_json
-
 end
 
 def convert(raw_text, conversion_type, options)

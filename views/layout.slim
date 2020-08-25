@@ -3,47 +3,37 @@ html
     title ERB 2 SLIM
     meta name="description" content="A single-page application to quickly convert your HTML to SLIM or HAML code"
 
+    link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet" 
+    
     - if isdev
-      link href="/css/light_theme.css" rel="stylesheet"
-      link href="/css/dark_main.css" rel="stylesheet" id="MainCSS"
-      link href="/css/dark_materialize.css" rel="stylesheet" id="MaterializeCSS"
-      link href="/css/dark_theme.css" rel="stylesheet"
+      link href="/css/erb2slim.css" rel="stylesheet" id="MainCSS"
+      link href="/css/codemirror_dark_theme.css" rel="stylesheet"
       link href="/css/codemirror.css" rel="stylesheet"
-      link href="/css/flipclock.css" rel="stylesheet"
-      link href="/css/flipclock_custom.css" rel="stylesheet"
+      link href="/css/flip.css" rel="stylesheet"
     - else
-      link href="/css/dark.min.css" rel="stylesheet" id="CSS"
-    script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"
+      link href="/css/erb2slim.min.css" rel="stylesheet" id="CSS"
+
+    script crossorigin="anonymous" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" src="https://code.jquery.com/jquery-2.2.4.min.js" 
   body
   
   == yield
 
-  - if isdev
-    /CODEMIRROR
-    
+  - if isdev    
+    /CODEMIRROR - Multiplex required for htmlembedded
+    /yes, I guess I actually need all these 
     script src="/js/codemirror.js" 
-    
-    /ADD-ONS
-
-    /allows custom highlighting color
-    script src="/js/mark-selection.js" 
-    /Syntax highlighting for multiple languages in single window
-    script src="/js/multiplex.js" 
-
-    /SYNTAX HIGHLIGHTING
-
-    script src="/js/xml.js" 
-    script src="/js/htmlembedded.js" 
-    script src="/js/htmlmixed.js" 
-    script src="/js/coffeescript.js" 
-    script src="/js/javascript.js" 
-    script src="/js/ruby.js" 
-    script src="/js/markdown.js" 
+    script src="/js/multiplex.js"
+    script src="/js/htmlembedded.js"
+    script src="/js/htmlmixed.js"
     script src="/js/slim.js" 
     script src="/js/haml.js" 
+    script src="/js/javascript.js" 
+    script src="/js/xml.js" 
+    script src="/js/ruby.js" 
+    script src="/js/css.js" 
     
-    /CONVERSION COUNTER
-    script src="/js/flipclock.js" 
+    /Counter
+    script src="/js/flip.js" 
     
     /SITE JS
     script src="/js/erb2slim.js" 

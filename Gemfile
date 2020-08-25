@@ -1,10 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'sinatra', '>=2.0.0'
-gem 'redis', '>=3.2.0'
-gem 'slim', '>=3.0.8'
-gem 'sass', '>=3.4.24'
-gem 'rack-mobile-detect', '>=0.4.0'
-gem 'html2slim', '>=0.2.0'
-gem 'html2haml', '>=2.0.0'
-gem 'haml2slim', '>=0.4.7'
+gem 'sinatra'
+gem 'slim'
+gem 'rack-mobile-detect'
+gem 'html2slim'
+gem 'html2haml'
+gem 'haml2slim'
+gem 'thin'
+gem "azure-storage-table", '~>1.0.1'
+gem 'pry'
+#codemirror 5.57.0 --- https://codemirror.net/
+#flip javascript --- https://pqina.nl/flip/+
